@@ -1,7 +1,7 @@
 ---
 title: "BSMM-lab-2"
 subtitle: "BSMM 8740 Fall 2023"
-author: "pratik bhikadiya"
+author: "pratik bhikadiya STUDENT ID :105172589"
 date: "25-09-2023"
 format: html
 editor: visual
@@ -72,15 +72,16 @@ unique_artists_count <- the_tate %>%
   distinct() %>%
   nrow()
 ```
+
 ```{r}
 unique_artists_count
 ```
+
 ```{r}
 # Find the range of years artists worked
 min_year_worked <- min(the_tate$year,na.rm = TRUE)
 max_year_worked <- max(the_tate$year,na.rm = TRUE)
 ```
-
 
 ```{r}
 # Find the range of acquisition years
@@ -96,13 +97,14 @@ cat("The the_tate dataset has", unique_artists_count, "unique artists who worked
 cat("The works were acquired between the years", min_acquisition_year, "and", max_acquisition_year, ".\n")
 ```
 
-
 ### Exercise 2
 
 How number of works with missing dates is \_\_.
+
 ```{r}
 the_tate|>dplyr::filter(is.na(year))|>dplyr::distinct(artist)
 ```
+
 ```{r}
 artists_with_missing_dates <- the_tate %>%
   filter(is.na(year)) %>%
@@ -110,7 +112,6 @@ artists_with_missing_dates <- the_tate %>%
   nrow()
 
 ```
-
 
 ```{r}
 
@@ -124,7 +125,6 @@ artists_with_missing_data_resolved <- the_tate %>%
   filter(missing_years <= n()/2) %>%
   nrow()
 ```
-
 
 ```{r}
 # Find the most likely category for the missing year data (e.g., "Unknown")
@@ -141,7 +141,6 @@ cat("It would require resolving missing year data for only", artists_with_missin
 cat("The missing year data is likely to be classified as", likely_missing_data_category, ".\n")
 
 ```
-
 
 The number of artists whose works have missing dates is \_\_.
 
@@ -165,18 +164,17 @@ top_10_artists <- artist_work_counts %>%
   slice_head(n = 10)
 
 ```
+
 ```{r}
 View(artist_work_counts)
 View(top_10_artists)
 ```
-
 
 The artist with the most works in the Tate collection is \_\_\_.
 
 The artist with the tenth-most works in the Tate collection is \_\_\_.
 
 ### Exercise 4
-
 
 ```{r}
 total_works <- nrow(the_tate)
@@ -205,13 +203,11 @@ table <- artist_work_counts %>%
 print(table)
 ```
 
-
 The artist with the greatest number of works in the Tate collection represent \_\_\_% of the total number of works
 
 ### Exercise 5
 
 There are \_\_ duplicate artist-title pairs
-
 
 ```{r}
 total_rows <- total_works
@@ -227,7 +223,6 @@ distinct_count <- nrow(distinct_artist_title_pair)
 duplicated_count <- total_rows - distinct_count
 cat("Duplicated artist-title pairs:", duplicated_count, "\n")
 ```
-
 
 ### Exercise 6
 
