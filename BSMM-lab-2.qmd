@@ -13,19 +13,19 @@ self-contained: true
 Load packages and data:
 
 ```{r}
-install.packages("tidyverse")
-install.packages("gt")           # for making display tables
-install.packages("gtExtras")     # helper functions for beautiful tables
-install.packages("DataExplorer")
+#install.packages("tidyverse")
+#install.packages("gt")           # for making display tables
+#install.packages("gtExtras")     # helper functions for beautiful tables
+#install.packages("DataExplorer")
 ```
 
 ```{r}
-install.packages("tidymodels")
+#install.packages("tidymodels")
 
 ```
 
 ```{r}
-install.packages("gt")
+#install.packages("gt")
 ```
 
 ```{r}
@@ -48,18 +48,100 @@ the_tate_artists <- readr::read_csv("data/the-tate-artists.csv")
 ### Exercise 1
 
 ```{r}
-dim(the_tate_artists)
+glimpse(the_tate_artists)
 ```
 
 ```{r}
-headname
+View(the_tate)
+View(the_tate_artists)
+```
+
+```{r}
+glimpse(the_tate)
 ```
 
 The `the_tate` dataset has \_\_\_ unique artists who worked from \_\_\_ to \_\_\_. The works were acquired between the years \_\_\_ and \_\_\_.
 
+```{r}
+# Load the required library
+library(dplyr)
+
+# Calculate the number of unique artists using select
+unique_artists_count <- the_tate %>%
+  select(artist) %>%
+  distinct() %>%
+  nrow()
+```
+```{r}
+unique_artists_count
+```
+```{r}
+# Find the range of years artists worked
+min_year_worked <- min(the_tate$year,na.rm = TRUE)
+max_year_worked <- max(the_tate$year,na.rm = TRUE)
+```
+
+
+```{r}
+# Find the range of acquisition years
+min_acquisition_year <- min(the_tate$acquisitionYear, na.rm = TRUE)
+max_acquisition_year <- max(the_tate$acquisitionYear, na.rm = TRUE)
+
+
+```
+
+```{r}
+cat("The the_tate dataset has", unique_artists_count, "unique artists who worked from",
+    min_year_worked, "to", max_year_worked, ".\n")
+cat("The works were acquired between the years", min_acquisition_year, "and", max_acquisition_year, ".\n")
+```
+
+
 ### Exercise 2
 
 How number of works with missing dates is \_\_.
+```{r}
+the_tate|>dplyr::filter(is.na(year))|>dplyr::distinct(artist)
+```
+```{r}
+artists_with_missing_dates <- the_tate %>%
+  filter(is.na(year)) %>%
+  distinct(artist) %>%
+  nrow()
+
+```
+
+
+```{r}
+
+the_tate|>dplyr::filter(is.na(year))|>dplyr::distinct(title)
+```
+
+```{r}
+artists_with_missing_data_resolved <- the_tate %>%
+  group_by(artist) %>%
+  summarise(missing_years = sum(is.na(year))) %>%
+  filter(missing_years <= n()/2) %>%
+  nrow()
+```
+
+
+```{r}
+# Find the most likely category for the missing year data (e.g., "Unknown")
+likely_missing_data_category <- the_tate %>%
+  group_by(year) %>%
+  summarise(count = n()) %>%
+  filter(year != "") %>%
+  top_n(1, count) %>%
+  pull(year)
+
+# Print the results
+cat("The number of artists whose works have missing dates is", artists_with_missing_dates, ".\n")
+cat("It would require resolving missing year data for only", artists_with_missing_data_resolved, "artists to resolve at least 50% of the missing data.\n")
+cat("The missing year data is likely to be classified as", likely_missing_data_category, ".\n")
+
+```
+
 
 The number of artists whose works have missing dates is \_\_.
 
@@ -69,17 +151,83 @@ The missing year data likely to be classified as \_\_\_\_.
 
 ### Exercise 3
 
+```{r}
+# Group the data by artist and count the number of works for each artist
+artist_work_counts <- the_tate %>%
+  group_by(artist) %>%
+  summarize(title = n()) %>%
+  arrange(desc(title))
+
+ 
+
+# Display the top 10 artists by the number of works
+top_10_artists <- artist_work_counts %>%
+  slice_head(n = 10)
+
+```
+```{r}
+View(artist_work_counts)
+View(top_10_artists)
+```
+
+
 The artist with the most works in the Tate collection is \_\_\_.
 
 The artist with the tenth-most works in the Tate collection is \_\_\_.
 
 ### Exercise 4
 
+
+```{r}
+total_works <- nrow(the_tate)
+artist_work_counts %<>%mutate(percentage=(title/total_works)*100)
+
+```
+
+```{r}
+View(artist_work_counts)
+```
+
+```{r}
+# Create the table using gt
+table <- artist_work_counts %>%
+  gt() %>%
+  fmt_number(
+    columns = c(title, percentage), # Format both title and percentage columns
+    decimals = 2 # No decimal places for title, and decimals for percentage
+  ) %>%
+  tab_header(title = "Top Artists by Number of Works and Percentage of Collection")
+
+
+ 
+
+# Print the formatted table
+print(table)
+```
+
+
 The artist with the greatest number of works in the Tate collection represent \_\_\_% of the total number of works
 
 ### Exercise 5
 
 There are \_\_ duplicate artist-title pairs
+
+
+```{r}
+total_rows <- total_works
+distinct_artist_title_pair <- the_tate %>% select(artist,title) %>% distinct()
+```
+
+```{r}
+distinct_count <- nrow(distinct_artist_title_pair)
+```
+
+```{r}
+# Count the number of duplicated artist-title pairs
+duplicated_count <- total_rows - distinct_count
+cat("Duplicated artist-title pairs:", duplicated_count, "\n")
+```
+
 
 ### Exercise 6
 
