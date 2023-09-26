@@ -397,7 +397,7 @@ The corresponding price volatility was **34.70**%.
 
 ### Exercise 9
 
-The period volatility was 19.52%
+The period volatility was **19.52**%
 
 ```{r}
 
