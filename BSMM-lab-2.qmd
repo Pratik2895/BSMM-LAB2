@@ -290,7 +290,7 @@ library(tidyr)
 
 # Calculate the area of each artwork and add it as a new column
 the_tate <- the_tate %>%
-  mutate(area_cm2 = (width * height)/10000)
+  mutate(area_cm2 = (width * height)/100)
 
 # Select artist, title, and area, remove NA values
 selected_artworks <- the_tate %>%
@@ -322,7 +322,7 @@ print(smallest_artwork)
 
 The artist with the largest work in the tate collection is **Therrien, Robert**
 
-The artist with the smallest work in the collection is **Mesens, E.L.T.**. The smallest work has area 0.0237 $\text{cm}^2$
+The artist with the smallest work in the collection is **Mesens, E.L.T.**. The smallest work has area 2.37 $\text{cm}^2$
 
 ### Exercise 7
 

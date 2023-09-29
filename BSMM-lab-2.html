@@ -3213,7 +3213,7 @@ return!"\t\n\x0B\f\r                　\u2028\u2029
 ✖ purrr::set_names() masks magrittr::set_names()
 ✖ yardstick::spec()  masks readr::spec()
 ✖ recipes::step()    masks stats::step()
-• Dig deeper into tidy modeling with R at https://www.tmwr.org</code></pre>
+• Use tidymodels_prefer() to resolve common conflicts.</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(gt)           <span class="co"># for making display tables</span></span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(gtExtras)     <span class="co"># helper functions for beautiful tables</span></span>
@@ -3552,23 +3552,23 @@ $ url                &lt;chr&gt; &quot;http://www.tate.org.uk/art/artworks/charl
 <span id="cb53-13"><a href="#cb53-13" aria-hidden="true" tabindex="-1"></a><span class="co"># Print the formatted table</span></span>
 <span id="cb53-14"><a href="#cb53-14" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(table)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>&lt;div id=&quot;ojdolpamfm&quot; style=&quot;padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;&quot;&gt;
-  &lt;style&gt;#ojdolpamfm table {
+<pre><code>&lt;div id=&quot;vptshzuqec&quot; style=&quot;padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;&quot;&gt;
+  &lt;style&gt;#vptshzuqec table {
   font-family: system-ui, &#39;Segoe UI&#39;, Roboto, Helvetica, Arial, sans-serif, &#39;Apple Color Emoji&#39;, &#39;Segoe UI Emoji&#39;, &#39;Segoe UI Symbol&#39;, &#39;Noto Color Emoji&#39;;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#ojdolpamfm thead, #ojdolpamfm tbody, #ojdolpamfm tfoot, #ojdolpamfm tr, #ojdolpamfm td, #ojdolpamfm th {
+#vptshzuqec thead, #vptshzuqec tbody, #vptshzuqec tfoot, #vptshzuqec tr, #vptshzuqec td, #vptshzuqec th {
   border-style: none;
 }
 
-#ojdolpamfm p {
+#vptshzuqec p {
   margin: 0;
   padding: 0;
 }
 
-#ojdolpamfm .gt_table {
+#vptshzuqec .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -3594,12 +3594,12 @@ $ url                &lt;chr&gt; &quot;http://www.tate.org.uk/art/artworks/charl
   border-left-color: #D3D3D3;
 }
 
-#ojdolpamfm .gt_caption {
+#vptshzuqec .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#ojdolpamfm .gt_title {
+#vptshzuqec .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -3611,7 +3611,7 @@ $ url                &lt;chr&gt; &quot;http://www.tate.org.uk/art/artworks/charl
   border-bottom-width: 0;
 }
 
-#ojdolpamfm .gt_subtitle {
+#vptshzuqec .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -3623,7 +3623,7 @@ $ url                &lt;chr&gt; &quot;http://www.tate.org.uk/art/artworks/charl
   border-top-width: 0;
 }
 
-#ojdolpamfm .gt_heading {
+#vptshzuqec .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -3635,13 +3635,13 @@ $ url                &lt;chr&gt; &quot;http://www.tate.org.uk/art/artworks/charl
   border-right-color: #D3D3D3;
 }
 
-#ojdolpamfm .gt_bottom_border {
+#vptshzuqec .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#ojdolpamfm .gt_col_headings {
+#vptshzuqec .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -3656,7 +3656,7 @@ $ url                &lt;chr&gt; &quot;http://www.tate.org.uk/art/artworks/charl
   border-right-color: #D3D3D3;
 }
 
-#ojdolpamfm .gt_col_heading {
+#vptshzuqec .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -3676,7 +3676,7 @@ $ url                &lt;chr&gt; &quot;http://www.tate.org.uk/art/artworks/charl
   overflow-x: hidden;
 }
 
-#ojdolpamfm .gt_column_spanner_outer {
+#vptshzuqec .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -3688,15 +3688,15 @@ $ url                &lt;chr&gt; &quot;http://www.tate.org.uk/art/artworks/charl
   padding-right: 4px;
 }
 
-#ojdolpamfm .gt_column_spanner_outer:first-child {
+#vptshzuqec .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#ojdolpamfm .gt_column_spanner_outer:last-child {
+#vptshzuqec .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#ojdolpamfm .gt_column_spanner {
+#vptshzuqec .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -3708,11 +3708,11 @@ $ url                &lt;chr&gt; &quot;http://www.tate.org.uk/art/artworks/charl
   width: 100%;
 }
 
-#ojdolpamfm .gt_spanner_row {
+#vptshzuqec .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#ojdolpamfm .gt_group_heading {
+#vptshzuqec .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -3738,7 +3738,7 @@ $ url                &lt;chr&gt; &quot;http://www.tate.org.uk/art/artworks/charl
   text-align: left;
 }
 
-#ojdolpamfm .gt_empty_group_heading {
+#vptshzuqec .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -3753,15 +3753,15 @@ $ url                &lt;chr&gt; &quot;http://www.tate.org.uk/art/artworks/charl
   vertical-align: middle;
 }
 
-#ojdolpamfm .gt_from_md &gt; :first-child {
+#vptshzuqec .gt_from_md &gt; :first-child {
   margin-top: 0;
 }
 
-#ojdolpamfm .gt_from_md &gt; :last-child {
+#vptshzuqec .gt_from_md &gt; :last-child {
   margin-bottom: 0;
 }
 
-#ojdolpamfm .gt_row {
+#vptshzuqec .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -3780,7 +3780,7 @@ $ url                &lt;chr&gt; &quot;http://www.tate.org.uk/art/artworks/charl
   overflow-x: hidden;
 }
 
-#ojdolpamfm .gt_stub {
+#vptshzuqec .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -3793,7 +3793,7 @@ $ url                &lt;chr&gt; &quot;http://www.tate.org.uk/art/artworks/charl
   padding-right: 5px;
 }
 
-#ojdolpamfm .gt_stub_row_group {
+#vptshzuqec .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -3807,15 +3807,15 @@ $ url                &lt;chr&gt; &quot;http://www.tate.org.uk/art/artworks/charl
   vertical-align: top;
 }
 
-#ojdolpamfm .gt_row_group_first td {
+#vptshzuqec .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#ojdolpamfm .gt_row_group_first th {
+#vptshzuqec .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#ojdolpamfm .gt_summary_row {
+#vptshzuqec .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -3825,16 +3825,16 @@ $ url                &lt;chr&gt; &quot;http://www.tate.org.uk/art/artworks/charl
   padding-right: 5px;
 }
 
-#ojdolpamfm .gt_first_summary_row {
+#vptshzuqec .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#ojdolpamfm .gt_first_summary_row.thick {
+#vptshzuqec .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#ojdolpamfm .gt_last_summary_row {
+#vptshzuqec .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -3844,7 +3844,7 @@ $ url                &lt;chr&gt; &quot;http://www.tate.org.uk/art/artworks/charl
   border-bottom-color: #D3D3D3;
 }
 
-#ojdolpamfm .gt_grand_summary_row {
+#vptshzuqec .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -3854,7 +3854,7 @@ $ url                &lt;chr&gt; &quot;http://www.tate.org.uk/art/artworks/charl
   padding-right: 5px;
 }
 
-#ojdolpamfm .gt_first_grand_summary_row {
+#vptshzuqec .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -3864,7 +3864,7 @@ $ url                &lt;chr&gt; &quot;http://www.tate.org.uk/art/artworks/charl
   border-top-color: #D3D3D3;
 }
 
-#ojdolpamfm .gt_last_grand_summary_row_top {
+#vptshzuqec .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -3874,11 +3874,11 @@ $ url                &lt;chr&gt; &quot;http://www.tate.org.uk/art/artworks/charl
   border-bottom-color: #D3D3D3;
 }
 
-#ojdolpamfm .gt_striped {
+#vptshzuqec .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#ojdolpamfm .gt_table_body {
+#vptshzuqec .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -3887,7 +3887,7 @@ $ url                &lt;chr&gt; &quot;http://www.tate.org.uk/art/artworks/charl
   border-bottom-color: #D3D3D3;
 }
 
-#ojdolpamfm .gt_footnotes {
+#vptshzuqec .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -3901,7 +3901,7 @@ $ url                &lt;chr&gt; &quot;http://www.tate.org.uk/art/artworks/charl
   border-right-color: #D3D3D3;
 }
 
-#ojdolpamfm .gt_footnote {
+#vptshzuqec .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -3910,7 +3910,7 @@ $ url                &lt;chr&gt; &quot;http://www.tate.org.uk/art/artworks/charl
   padding-right: 5px;
 }
 
-#ojdolpamfm .gt_sourcenotes {
+#vptshzuqec .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -3924,7 +3924,7 @@ $ url                &lt;chr&gt; &quot;http://www.tate.org.uk/art/artworks/charl
   border-right-color: #D3D3D3;
 }
 
-#ojdolpamfm .gt_sourcenote {
+#vptshzuqec .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -3932,63 +3932,63 @@ $ url                &lt;chr&gt; &quot;http://www.tate.org.uk/art/artworks/charl
   padding-right: 5px;
 }
 
-#ojdolpamfm .gt_left {
+#vptshzuqec .gt_left {
   text-align: left;
 }
 
-#ojdolpamfm .gt_center {
+#vptshzuqec .gt_center {
   text-align: center;
 }
 
-#ojdolpamfm .gt_right {
+#vptshzuqec .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#ojdolpamfm .gt_font_normal {
+#vptshzuqec .gt_font_normal {
   font-weight: normal;
 }
 
-#ojdolpamfm .gt_font_bold {
+#vptshzuqec .gt_font_bold {
   font-weight: bold;
 }
 
-#ojdolpamfm .gt_font_italic {
+#vptshzuqec .gt_font_italic {
   font-style: italic;
 }
 
-#ojdolpamfm .gt_super {
+#vptshzuqec .gt_super {
   font-size: 65%;
 }
 
-#ojdolpamfm .gt_footnote_marks {
+#vptshzuqec .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#ojdolpamfm .gt_asterisk {
+#vptshzuqec .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#ojdolpamfm .gt_indent_1 {
+#vptshzuqec .gt_indent_1 {
   text-indent: 5px;
 }
 
-#ojdolpamfm .gt_indent_2 {
+#vptshzuqec .gt_indent_2 {
   text-indent: 10px;
 }
 
-#ojdolpamfm .gt_indent_3 {
+#vptshzuqec .gt_indent_3 {
   text-indent: 15px;
 }
 
-#ojdolpamfm .gt_indent_4 {
+#vptshzuqec .gt_indent_4 {
   text-indent: 20px;
 }
 
-#ojdolpamfm .gt_indent_5 {
+#vptshzuqec .gt_indent_5 {
   text-indent: 25px;
 }
 &lt;/style&gt;
@@ -14081,7 +14081,7 @@ $ url                &lt;chr&gt; &quot;http://www.tate.org.uk/art/artworks/charl
 <span id="cb63-4"><a href="#cb63-4" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb63-5"><a href="#cb63-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate the area of each artwork and add it as a new column</span></span>
 <span id="cb63-6"><a href="#cb63-6" aria-hidden="true" tabindex="-1"></a>the_tate <span class="ot">&lt;-</span> the_tate <span class="sc">%&gt;%</span></span>
-<span id="cb63-7"><a href="#cb63-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">area_cm2 =</span> (width <span class="sc">*</span> height)<span class="sc">/</span><span class="dv">10000</span>)</span>
+<span id="cb63-7"><a href="#cb63-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">area_cm2 =</span> (width <span class="sc">*</span> height)<span class="sc">/</span><span class="dv">100</span>)</span>
 <span id="cb63-8"><a href="#cb63-8" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb63-9"><a href="#cb63-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Select artist, title, and area, remove NA values</span></span>
 <span id="cb63-10"><a href="#cb63-10" aria-hidden="true" tabindex="-1"></a>selected_artworks <span class="ot">&lt;-</span> the_tate <span class="sc">%&gt;%</span></span>
@@ -14107,18 +14107,18 @@ $ url                &lt;chr&gt; &quot;http://www.tate.org.uk/art/artworks/charl
 <pre><code># A tibble: 1 × 3
   artist           title                            area_cm2
   &lt;chr&gt;            &lt;chr&gt;                               &lt;dbl&gt;
-1 Therrien, Robert No Title (Table and Four Chairs)   13246.</code></pre>
+1 Therrien, Robert No Title (Table and Four Chairs)  1324620</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb65"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb65-1"><a href="#cb65-1" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(smallest_artwork)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 1 × 3
   artist         title           area_cm2
   &lt;chr&gt;          &lt;chr&gt;              &lt;dbl&gt;
-1 Mesens, E.L.T. Thème de Ballet   0.0237</code></pre>
+1 Mesens, E.L.T. Thème de Ballet     2.37</code></pre>
 </div>
 </div>
 <p>The artist with the largest work in the tate collection is <strong>Therrien, Robert</strong></p>
-<p>The artist with the smallest work in the collection is <strong>Mesens, E.L.T.</strong>. The smallest work has area 0.0237 <span class="math inline">\(\text{cm}^2\)</span></p>
+<p>The artist with the smallest work in the collection is <strong>Mesens, E.L.T.</strong>. The smallest work has area 2.37 <span class="math inline">\(\text{cm}^2\)</span></p>
 </section>
 <section id="exercise-7" class="level3">
 <h3 class="anchored" data-anchor-id="exercise-7">Exercise 7</h3>
