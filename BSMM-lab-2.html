@@ -3213,7 +3213,7 @@ return!"\t\n\x0B\f\r                　\u2028\u2029
 ✖ purrr::set_names() masks magrittr::set_names()
 ✖ yardstick::spec()  masks readr::spec()
 ✖ recipes::step()    masks stats::step()
-• Use tidymodels_prefer() to resolve common conflicts.</code></pre>
+• Use suppressPackageStartupMessages() to eliminate package startup messages</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(gt)           <span class="co"># for making display tables</span></span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(gtExtras)     <span class="co"># helper functions for beautiful tables</span></span>
@@ -3552,23 +3552,23 @@ $ url                &lt;chr&gt; &quot;http://www.tate.org.uk/art/artworks/charl
 <span id="cb53-13"><a href="#cb53-13" aria-hidden="true" tabindex="-1"></a><span class="co"># Print the formatted table</span></span>
 <span id="cb53-14"><a href="#cb53-14" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(table)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>&lt;div id=&quot;vptshzuqec&quot; style=&quot;padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;&quot;&gt;
-  &lt;style&gt;#vptshzuqec table {
+<pre><code>&lt;div id=&quot;vmocxrkxdt&quot; style=&quot;padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;&quot;&gt;
+  &lt;style&gt;#vmocxrkxdt table {
   font-family: system-ui, &#39;Segoe UI&#39;, Roboto, Helvetica, Arial, sans-serif, &#39;Apple Color Emoji&#39;, &#39;Segoe UI Emoji&#39;, &#39;Segoe UI Symbol&#39;, &#39;Noto Color Emoji&#39;;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#vptshzuqec thead, #vptshzuqec tbody, #vptshzuqec tfoot, #vptshzuqec tr, #vptshzuqec td, #vptshzuqec th {
+#vmocxrkxdt thead, #vmocxrkxdt tbody, #vmocxrkxdt tfoot, #vmocxrkxdt tr, #vmocxrkxdt td, #vmocxrkxdt th {
   border-style: none;
 }
 
-#vptshzuqec p {
+#vmocxrkxdt p {
   margin: 0;
   padding: 0;
 }
 
-#vptshzuqec .gt_table {
+#vmocxrkxdt .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -3594,12 +3594,12 @@ $ url                &lt;chr&gt; &quot;http://www.tate.org.uk/art/artworks/charl
   border-left-color: #D3D3D3;
 }
 
-#vptshzuqec .gt_caption {
+#vmocxrkxdt .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#vptshzuqec .gt_title {
+#vmocxrkxdt .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -3611,7 +3611,7 @@ $ url                &lt;chr&gt; &quot;http://www.tate.org.uk/art/artworks/charl
   border-bottom-width: 0;
 }
 
-#vptshzuqec .gt_subtitle {
+#vmocxrkxdt .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -3623,7 +3623,7 @@ $ url                &lt;chr&gt; &quot;http://www.tate.org.uk/art/artworks/charl
   border-top-width: 0;
 }
 
-#vptshzuqec .gt_heading {
+#vmocxrkxdt .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -3635,13 +3635,13 @@ $ url                &lt;chr&gt; &quot;http://www.tate.org.uk/art/artworks/charl
   border-right-color: #D3D3D3;
 }
 
-#vptshzuqec .gt_bottom_border {
+#vmocxrkxdt .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#vptshzuqec .gt_col_headings {
+#vmocxrkxdt .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -3656,7 +3656,7 @@ $ url                &lt;chr&gt; &quot;http://www.tate.org.uk/art/artworks/charl
   border-right-color: #D3D3D3;
 }
 
-#vptshzuqec .gt_col_heading {
+#vmocxrkxdt .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -3676,7 +3676,7 @@ $ url                &lt;chr&gt; &quot;http://www.tate.org.uk/art/artworks/charl
   overflow-x: hidden;
 }
 
-#vptshzuqec .gt_column_spanner_outer {
+#vmocxrkxdt .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -3688,15 +3688,15 @@ $ url                &lt;chr&gt; &quot;http://www.tate.org.uk/art/artworks/charl
   padding-right: 4px;
 }
 
-#vptshzuqec .gt_column_spanner_outer:first-child {
+#vmocxrkxdt .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#vptshzuqec .gt_column_spanner_outer:last-child {
+#vmocxrkxdt .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#vptshzuqec .gt_column_spanner {
+#vmocxrkxdt .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -3708,11 +3708,11 @@ $ url                &lt;chr&gt; &quot;http://www.tate.org.uk/art/artworks/charl
   width: 100%;
 }
 
-#vptshzuqec .gt_spanner_row {
+#vmocxrkxdt .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#vptshzuqec .gt_group_heading {
+#vmocxrkxdt .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -3738,7 +3738,7 @@ $ url                &lt;chr&gt; &quot;http://www.tate.org.uk/art/artworks/charl
   text-align: left;
 }
 
-#vptshzuqec .gt_empty_group_heading {
+#vmocxrkxdt .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -3753,15 +3753,15 @@ $ url                &lt;chr&gt; &quot;http://www.tate.org.uk/art/artworks/charl
   vertical-align: middle;
 }
 
-#vptshzuqec .gt_from_md &gt; :first-child {
+#vmocxrkxdt .gt_from_md &gt; :first-child {
   margin-top: 0;
 }
 
-#vptshzuqec .gt_from_md &gt; :last-child {
+#vmocxrkxdt .gt_from_md &gt; :last-child {
   margin-bottom: 0;
 }
 
-#vptshzuqec .gt_row {
+#vmocxrkxdt .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -3780,7 +3780,7 @@ $ url                &lt;chr&gt; &quot;http://www.tate.org.uk/art/artworks/charl
   overflow-x: hidden;
 }
 
-#vptshzuqec .gt_stub {
+#vmocxrkxdt .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -3793,7 +3793,7 @@ $ url                &lt;chr&gt; &quot;http://www.tate.org.uk/art/artworks/charl
   padding-right: 5px;
 }
 
-#vptshzuqec .gt_stub_row_group {
+#vmocxrkxdt .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -3807,15 +3807,15 @@ $ url                &lt;chr&gt; &quot;http://www.tate.org.uk/art/artworks/charl
   vertical-align: top;
 }
 
-#vptshzuqec .gt_row_group_first td {
+#vmocxrkxdt .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#vptshzuqec .gt_row_group_first th {
+#vmocxrkxdt .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#vptshzuqec .gt_summary_row {
+#vmocxrkxdt .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -3825,16 +3825,16 @@ $ url                &lt;chr&gt; &quot;http://www.tate.org.uk/art/artworks/charl
   padding-right: 5px;
 }
 
-#vptshzuqec .gt_first_summary_row {
+#vmocxrkxdt .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#vptshzuqec .gt_first_summary_row.thick {
+#vmocxrkxdt .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#vptshzuqec .gt_last_summary_row {
+#vmocxrkxdt .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -3844,7 +3844,7 @@ $ url                &lt;chr&gt; &quot;http://www.tate.org.uk/art/artworks/charl
   border-bottom-color: #D3D3D3;
 }
 
-#vptshzuqec .gt_grand_summary_row {
+#vmocxrkxdt .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -3854,7 +3854,7 @@ $ url                &lt;chr&gt; &quot;http://www.tate.org.uk/art/artworks/charl
   padding-right: 5px;
 }
 
-#vptshzuqec .gt_first_grand_summary_row {
+#vmocxrkxdt .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -3864,7 +3864,7 @@ $ url                &lt;chr&gt; &quot;http://www.tate.org.uk/art/artworks/charl
   border-top-color: #D3D3D3;
 }
 
-#vptshzuqec .gt_last_grand_summary_row_top {
+#vmocxrkxdt .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -3874,11 +3874,11 @@ $ url                &lt;chr&gt; &quot;http://www.tate.org.uk/art/artworks/charl
   border-bottom-color: #D3D3D3;
 }
 
-#vptshzuqec .gt_striped {
+#vmocxrkxdt .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#vptshzuqec .gt_table_body {
+#vmocxrkxdt .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -3887,7 +3887,7 @@ $ url                &lt;chr&gt; &quot;http://www.tate.org.uk/art/artworks/charl
   border-bottom-color: #D3D3D3;
 }
 
-#vptshzuqec .gt_footnotes {
+#vmocxrkxdt .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -3901,7 +3901,7 @@ $ url                &lt;chr&gt; &quot;http://www.tate.org.uk/art/artworks/charl
   border-right-color: #D3D3D3;
 }
 
-#vptshzuqec .gt_footnote {
+#vmocxrkxdt .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -3910,7 +3910,7 @@ $ url                &lt;chr&gt; &quot;http://www.tate.org.uk/art/artworks/charl
   padding-right: 5px;
 }
 
-#vptshzuqec .gt_sourcenotes {
+#vmocxrkxdt .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -3924,7 +3924,7 @@ $ url                &lt;chr&gt; &quot;http://www.tate.org.uk/art/artworks/charl
   border-right-color: #D3D3D3;
 }
 
-#vptshzuqec .gt_sourcenote {
+#vmocxrkxdt .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -3932,63 +3932,63 @@ $ url                &lt;chr&gt; &quot;http://www.tate.org.uk/art/artworks/charl
   padding-right: 5px;
 }
 
-#vptshzuqec .gt_left {
+#vmocxrkxdt .gt_left {
   text-align: left;
 }
 
-#vptshzuqec .gt_center {
+#vmocxrkxdt .gt_center {
   text-align: center;
 }
 
-#vptshzuqec .gt_right {
+#vmocxrkxdt .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#vptshzuqec .gt_font_normal {
+#vmocxrkxdt .gt_font_normal {
   font-weight: normal;
 }
 
-#vptshzuqec .gt_font_bold {
+#vmocxrkxdt .gt_font_bold {
   font-weight: bold;
 }
 
-#vptshzuqec .gt_font_italic {
+#vmocxrkxdt .gt_font_italic {
   font-style: italic;
 }
 
-#vptshzuqec .gt_super {
+#vmocxrkxdt .gt_super {
   font-size: 65%;
 }
 
-#vptshzuqec .gt_footnote_marks {
+#vmocxrkxdt .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#vptshzuqec .gt_asterisk {
+#vmocxrkxdt .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#vptshzuqec .gt_indent_1 {
+#vmocxrkxdt .gt_indent_1 {
   text-indent: 5px;
 }
 
-#vptshzuqec .gt_indent_2 {
+#vmocxrkxdt .gt_indent_2 {
   text-indent: 10px;
 }
 
-#vptshzuqec .gt_indent_3 {
+#vmocxrkxdt .gt_indent_3 {
   text-indent: 15px;
 }
 
-#vptshzuqec .gt_indent_4 {
+#vmocxrkxdt .gt_indent_4 {
   text-indent: 20px;
 }
 
-#vptshzuqec .gt_indent_5 {
+#vmocxrkxdt .gt_indent_5 {
   text-indent: 25px;
 }
 &lt;/style&gt;
@@ -14204,7 +14204,7 @@ dbl (4): Close/Last, Open, High, Low
 <div class="sourceCode cell-code" id="cb77"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb77-1"><a href="#cb77-1" aria-hidden="true" tabindex="-1"></a>summary_data <span class="ot">&lt;-</span> dataofstock <span class="sc">%&gt;%</span></span>
 <span id="cb77-2"><a href="#cb77-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(Year) <span class="sc">%&gt;%</span></span>
 <span id="cb77-3"><a href="#cb77-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(</span>
-<span id="cb77-4"><a href="#cb77-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">Annual_Return =</span> (<span class="fu">exp</span>(<span class="fu">sum</span>(rd, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)) <span class="sc">-</span> <span class="dv">1</span>)<span class="sc">*</span><span class="dv">100</span>,</span>
+<span id="cb77-4"><a href="#cb77-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">Annual_Return =</span> (<span class="fu">exp</span>(<span class="fu">sum</span>(rd, <span class="at">na.rm =</span> <span class="cn">TRUE</span>))<span class="sc">-</span><span class="dv">1</span>)<span class="sc">*</span><span class="dv">100</span>,</span>
 <span id="cb77-5"><a href="#cb77-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">Annual_StdDev =</span> <span class="fu">sqrt</span>(<span class="fu">sum</span>(vard, <span class="at">na.rm =</span> <span class="cn">TRUE</span>))<span class="sc">*</span><span class="dv">100</span>,</span>
 <span id="cb77-6"><a href="#cb77-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">.groups =</span> <span class="st">&quot;drop&quot;</span>  <span class="co"># Drop grouping after summary</span></span>
 <span id="cb77-7"><a href="#cb77-7" aria-hidden="true" tabindex="-1"></a>  )</span>
@@ -14228,50 +14228,17 @@ dbl (4): Close/Last, Open, High, Low
 </section>
 <section id="exercise-9" class="level3">
 <h3 class="anchored" data-anchor-id="exercise-9">Exercise 9</h3>
-<p>The period volatility was <strong>48.77</strong>%</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb79"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb79-1"><a href="#cb79-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Install packages for reading the csv file</span></span>
-<span id="cb79-2"><a href="#cb79-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb79-3"><a href="#cb79-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Load required libraries</span></span>
-<span id="cb79-4"><a href="#cb79-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
-<span id="cb79-5"><a href="#cb79-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readr)</span>
-<span id="cb79-6"><a href="#cb79-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb79-7"><a href="#cb79-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate period return and period volatility</span></span>
-<span id="cb79-8"><a href="#cb79-8" aria-hidden="true" tabindex="-1"></a>period_return <span class="ot">&lt;-</span> <span class="fu">prod</span>(<span class="dv">1</span> <span class="sc">+</span> summary_data<span class="sc">$</span>Annual_Return) <span class="sc">-</span> <span class="dv">1</span></span>
-<span id="cb79-9"><a href="#cb79-9" aria-hidden="true" tabindex="-1"></a>period_volatility <span class="ot">&lt;-</span> <span class="fu">sqrt</span>(<span class="fu">sum</span>(summary_data<span class="sc">$</span>Annual_StdDev<span class="sc">^</span><span class="dv">2</span>))</span>
-<span id="cb79-10"><a href="#cb79-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb79-11"><a href="#cb79-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Create summary rows for period return and period volatility</span></span>
-<span id="cb79-12"><a href="#cb79-12" aria-hidden="true" tabindex="-1"></a>summary_rows <span class="ot">&lt;-</span> tibble<span class="sc">::</span><span class="fu">tibble</span>(</span>
-<span id="cb79-13"><a href="#cb79-13" aria-hidden="true" tabindex="-1"></a>  <span class="at">Year =</span> <span class="fu">as.character</span>(<span class="st">&quot;Period&quot;</span>),  <span class="co"># Ensure &quot;Year&quot; is character type</span></span>
-<span id="cb79-14"><a href="#cb79-14" aria-hidden="true" tabindex="-1"></a>  <span class="at">Annual_Return =</span> period_return,</span>
-<span id="cb79-15"><a href="#cb79-15" aria-hidden="true" tabindex="-1"></a>  <span class="at">Annual_StdDev =</span> period_volatility</span>
-<span id="cb79-16"><a href="#cb79-16" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb79-17"><a href="#cb79-17" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb79-18"><a href="#cb79-18" aria-hidden="true" tabindex="-1"></a><span class="co"># Convert the &quot;Year&quot; column in summary_data to character</span></span>
-<span id="cb79-19"><a href="#cb79-19" aria-hidden="true" tabindex="-1"></a>summary_data <span class="ot">&lt;-</span> summary_data <span class="sc">|&gt;</span></span>
-<span id="cb79-20"><a href="#cb79-20" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">Year =</span> <span class="fu">as.character</span>(Year))</span>
-<span id="cb79-21"><a href="#cb79-21" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb79-22"><a href="#cb79-22" aria-hidden="true" tabindex="-1"></a><span class="co"># Combine the summary rows with the summary_data</span></span>
-<span id="cb79-23"><a href="#cb79-23" aria-hidden="true" tabindex="-1"></a>summary_data <span class="ot">&lt;-</span> <span class="fu">bind_rows</span>(summary_data, summary_rows)</span>
-<span id="cb79-24"><a href="#cb79-24" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb79-25"><a href="#cb79-25" aria-hidden="true" tabindex="-1"></a><span class="co"># Print the summary data</span></span>
-<span id="cb79-26"><a href="#cb79-26" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(summary_data)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 7 × 3
-  Year   Annual_Return Annual_StdDev
-  &lt;chr&gt;          &lt;dbl&gt;         &lt;dbl&gt;
-1 2018            13.7          12.1
-2 2019           -22.4          12.6
-3 2020           -14.0          34.7
-4 2021           -21.2          13.2
-5 2022            24.1          24.1
-6 2023           -12.8          10.7
-7 Period    24513798.           48.8</code></pre>
-</div>
-</div>
+<p>The period volatility was <strong>19.52</strong>%</p>
 </section>
 <section id="section" class="level3">
 <h3 class="anchored" data-anchor-id="section"></h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb79"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb79-1"><a href="#cb79-1" aria-hidden="true" tabindex="-1"></a>volatility <span class="ot">&lt;-</span> <span class="fu">sd</span>(summary_data<span class="sc">$</span>Annual_Return)</span>
+<span id="cb79-2"><a href="#cb79-2" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(volatility)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 19.51618</code></pre>
+</div>
+</div>
 </section>
 </section>
 
